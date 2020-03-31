@@ -1,0 +1,20 @@
+﻿@model CountsViewModel
+
+<form action="/home/index">
+    <div class="row">
+        <div class="col-md-10">
+            <input value="@Model.Text" type="text" name="text" class="form-control input-lg" placeholder="Enter text here...." />
+        </div>
+        <div class="col-md-2">
+            <button class="btn btn-primary btn-block btn-lg">Submit</button>
+        </div>
+    </div>
+</form>
+
+@if (Model.Counts != null)
+{
+    foreach (KeyValuePair<char, int> count in Model.Counts)
+    {
+        <h4>There are @count.Value @(count.Key)(s)</h4>
+    }
+}
